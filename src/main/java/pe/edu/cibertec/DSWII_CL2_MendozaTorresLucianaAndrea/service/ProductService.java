@@ -16,26 +16,30 @@ public class ProductService {
     public List<Product> listarProduct(){
         return productRepository.findAll();
     }
-    public Product guardar(Product category){
-        return productRepository.save(category);
+    public Product guardar(Product product){
+        return productRepository.save(product);
     }
     public Optional<Product> obtenerProductPorId(Integer id){
-        Optional<Product> category = productRepository.findById(id);
-        if(category.isEmpty()){
+        Optional<Product> product = productRepository.findById(id);
+        if(product.isEmpty()){
             return Optional.empty();
         }else
-            return category;
+            return product;
     }
 
-    public Optional<Product> obtenerProductPorNombre(String categoryName){
-        Optional<Product> category = productRepository.findByProductname(categoryName);
-        if(category.isEmpty())
-            return  Optional.empty();
-        else
-            return category;
+
+
+
+
+    public List<Product> buscarProductosPorNombre(String nombre){
+        return productRepository.findByNombre(nombre);
     }
 
-    public List<Product> obtenerProductPorFiltro(String filtro){
-        return productRepository.filtrarProductPorNombreSQL(filtro);
+    public List<Product> buscarProductosEntre10Y100(){
+        return productRepository.findProductEntre10y100();
+    }
+
+    public List<Product> buscarProductosPorAnio2024(Integer anio){
+        return productRepository.findProductByYear2024(anio);
     }
 }

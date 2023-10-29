@@ -15,12 +15,12 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(name = "nombre")
+    @Column(name = "Nombre")
     private String nombre;
-    @Column(name = "descripcion")
+    @Column(name = "Descripcion")
     private String descripcion;
-    @Column(name = "cantidad")
+    @Column(name = "Cantidad")
     private Integer cantidad;
-    @Column(name = "fechavencimineto")
+        @Column(name = "Fechavencimineto")
     private Date fechavencimineto;
 }

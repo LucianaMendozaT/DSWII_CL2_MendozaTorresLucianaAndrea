@@ -60,7 +60,7 @@ public class ProductController {
             @RequestBody Product product
     ){
         return new ResponseEntity<>(
-                productService.guardar(productroduct), HttpStatus.CREATED
+                productService.guardar(product), HttpStatus.CREATED
         );
     }
 
@@ -73,10 +73,15 @@ public class ProductController {
                 .obtenerProductPorId(id)
                 .orElseThrow(() -> new ResourceNotFoundException("La categoria con el Id Nro. "+
                         id + " no existe."));
-        oldProduct.setProductname(Product.getProductname());
-        oldProduct.setDescription(Product.getDescription());
+        oldProduct.getNombre(product.getNombre());
+        oldProduct.setDescripcion(product.getDescripcion());
+        oldProduct.getCantidad(product.getCantidad());
+        oldProduct.getFechavencimineto(product.getFechavencimineto());
+
         return new ResponseEntity<>(
-                ProductService.guardar(oldProduct), HttpStatus.OK
+                productService.guardar(oldProduct), HttpStatus.OK
         );
     }
+
+
 }
